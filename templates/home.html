@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div class="card" style="width: 60%;">
+<div class="card" style="width: 55%;">
   <div class="card-body">
       <div class="row">
         <div class="col">
@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<div class="card" style="width: 60%;">
+<div class="card" style="width: 55%;">
   <div class="card-body">
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -35,32 +35,22 @@
   </div>
 </div>
 
- <div class="row" style="width: 60%; ">
-        <div class="col">
-          Monday
-        </div>
-        <div class="col">
-          Tuesday
-        </div>
-        <div class="col">
-          Wednesday
-        </div>
-        <div class="col">
-          Thursday
-        </div>
-        <div class="col">
-           Friday
-        </div>
-        <div class="col">
-          saturday
-        </div>
-        <div class="col">
-          Sunday
-        </div>
+ <div class="card" style="width: 55%; ">
+        <div class="card-body">
+            <div class="row">
+
+                {% for forecast in forcast_list %}
+                        <div class="col">
+                        Monday
+                        <img src="{{ forecast_list[0]['icon'] }}">
+                        <br>
+                        {{ forecast_list[0]["temp"] }}
+                        </div>
+                {% endfor %}
+
       </div>
   </div>
 </div>
-
 
 
 </body>
