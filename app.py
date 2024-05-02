@@ -1,6 +1,6 @@
-import requests
 from datetime import datetime
-from flask import Flask, render_template, request
+import requests
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -24,30 +24,32 @@ def home():
     index = 0
     forecast_list = []
     while index < len(forecast_list):
+
         dt_txt = (forecast_list[index]['dt_txt'])
         temp = (forecast_list[index]['main']('temp'))
         icon = (forecast_list[index]['weather'][0]('icon'))
         description = (forecast_list[index]['weather'][0]('description'))
         index += 8
 
-        today = datetime.datetime(2017, 10, 20)
-        today.get_weekday()
+        today = datetime.datetime(2024, 5, 2)
+        today = today.datetime.get_weekday()
+        print(today)
+
 
         thisdict = {
             'dt_txt': dt_txt,
+            # 'day_of_week': day_name,
             'temp': temp,
             'icon': icon,
             'description': description
         }
 
         forecast_list.append(thisdict)
-    print(forecast_list)
+        print(forecast_list)
 
 
-    forecast_list = ''
-    return render_template('home.html', forecast_list=forecast_list)
-
-today = datetime.datetime
+        forecast_list = ''
+        return render_template('home.html', forecast_list=forecast_list)
 
 
 
