@@ -40,7 +40,7 @@ def home():
         # You can also get the day name
         day_name = date_object.strftime('%A')
         print(day_name)
-
+        # Added dictionary to store dt_txt. day_name, temp etc
         thisdict = {
             'dt_txt': dt_txt,
             'day_of_week': day_name,
