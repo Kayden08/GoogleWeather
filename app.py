@@ -19,7 +19,7 @@ def home():
     # print('city_name')
     # print('city_population')
 
-     # 'description': data['weather'][0]['description'],
+
 
     forecast_list = data['list']
     index = 0
@@ -49,11 +49,10 @@ def home():
             'description': description
         }
 
-        forecast_list.append(thisdict)
-        print(forecast_list)
+        forecast_data.append(thisdict)
+        print(forecast_data)
 
-        forecast_list = ''
-        return render_template('home.html', forecast_list=forecast_list)
+        return render_template('home.html', forecast_data=forecast_data)
 
 
 if __name__ == '__main__':
