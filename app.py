@@ -1,3 +1,4 @@
+# importing necessary requirements
 from datetime import datetime
 import requests
 from flask import Flask, render_template, request
@@ -8,22 +9,26 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 
+    # API key from OpenWeatherMap
     api_key = 'b12703d2df47873eaf71613c74db92a2'
     city = 'Adelaide'
     url = f'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&APPID=' + api_key
     print(url)
+    # Make a GET request to the OpenWeatherMap API
     response = requests.get(url)
     data = response.json()
+
     # city_name = data['city']['name']
     # city_population = data['city']['population']
     # print('city_name')
     # print('city_population')
 
-
-
+    # Extract the list of forecasts
     forecast_list = data['list']
     index = 0
     forecast_data = []
+
+    # looping through the forecast data and extracting the date and time, temperature, weather icons and weather descrpition
     while index < len(forecast_list):
 
         dt_txt = forecast_list[index]['dt_txt']
